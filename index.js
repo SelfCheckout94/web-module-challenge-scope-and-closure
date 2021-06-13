@@ -81,17 +81,14 @@ Use the finalScore function below to do the following:
 */ 
 
 function finalScore(inning, int){
-  debugger
   const teamScores = {
     "Home": 0,
     "Away": 0
   }
-  debugger
   for(let i = 0; i < int; i++){
     teamScores["Home"] += inning(); 
     teamScores["Away"] += inning();
   }
-  debugger
   return teamScores
   
 }
@@ -149,8 +146,22 @@ Use the scoreboard function below to do the following:
 ]  
   */
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function scoreboard(getInningScore, inning, num) {
+  const newArr = []
+  const teamScores = {
+    Home: 0,
+    Away: 0
+  }
+  for(let i = 0; i < num; i++){
+    let scores = getInningScore(inning);
+    let {Home, Away} = scores
+    // Same thing as let home = scores.Home. This is called "destructuring"
+    teamScores.Home += Home
+    teamScores.Away += Away
+    newArr.push(`Inning ${i + 1}: Away ${Away} - Home ${Home}`)
+  }
+  newArr.push(`${teamScores.Away === teamScores.Home ? 'This game will require extra innings' : 'Final Score'}: Away ${teamScores.Away} - Home ${teamScores.Home}`)
+  return newArr
 }
 
 
