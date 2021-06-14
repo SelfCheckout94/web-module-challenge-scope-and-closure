@@ -43,6 +43,8 @@ Find the file `index.js` and complete the tasks.
 Edit the `ReadMe` file with your answers.
 
 1. In your own words, define closure (1-2 sentences).
+-Closure is when a child functions reaches into a parent's scope for a value that is defined in the parent.
+
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -64,8 +66,13 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+-It's used on the returning function because it's reaching into the parent's scope for value
+
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+.The argument of "Dan will always be the same but the number that is rolled could be diffrerent
+
 c. What is the lexical scope of `newRoll`? 
+-newRoll can only be called up for value from within the function it's in
 
 
 ### Task 3 - Stretch Goals

@@ -28,12 +28,13 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
   Study the code for counter1 and counter2, then answer the questions below.
   
   1. What is the difference between counter1 and counter2?
-  -
+  -One uses scope while the other does not
 
   2. Which of the two uses a closure? How can you tell?
+  -Counter 1 uses closure because the counter function within it reaches into the parent scope
   
-  3. In what scenario would the counter1 code be preferable? In what scenario would 
-     counter2 be better?  
+  3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better?  
+  -counter1 could be used as a CB function and counter2 could be used if count needs to be used globally
 */
 
 // counter1 code
@@ -99,10 +100,7 @@ Use the getInningScore() function below to do the following:
   1. Receive a callback function - you will pass in the inning function from task 2 as your argument 
   2. Return an object with a score for home and a score for away that populates from invoking the inning callback function */
 
-  function getInningScore(inning) {
-    return {"Home": inning(), "Away": inning()}
-  }
-  
+  let getInningScore = () => ({"Home": inning(), "Away": inning()});
 
 
 /* ⚾️⚾️⚾️ Task 5: scoreboard() ⚾️⚾️⚾️
@@ -155,7 +153,7 @@ function scoreboard(getInningScore, inning, num) {
   for(let i = 0; i < num; i++){
     let scores = getInningScore(inning);
     let {Home, Away} = scores
-    // Same thing as let home = scores.Home. This is called "destructuring"
+    // Same thing as let home = scores.Home and let away = scores.Away. This is called "destructuring"
     teamScores.Home += Home
     teamScores.Away += Away
     newArr.push(`Inning ${i + 1}: Away ${Away} - Home ${Home}`)
